@@ -68,4 +68,13 @@ describe('lexsort', function () {
             { name: 'the zebra' }
         ]);
     });
+
+    it('ignores non alpha characters at the beginning of a string', function () {
+        var result = lexsort.sort(['123the zebra', '...the aardvark', '!@£monkey']);
+        expect(result).toEqual([
+            '...the aardvark',
+            '!@£monkey',
+            '123the zebra'
+        ]);
+    });
 });
