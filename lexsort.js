@@ -9,7 +9,7 @@ define(function(require) {
                     '^(' + articles.join('|') + ') (.*)', 'gi'
                 );
             }
-            return string.replace(/^[^a-z]*/gi, '').replace(articleRegex, '$2');
+            return string.replace(/^[^a-z0-9]*/gi, '').replace(articleRegex, '$2');
         },
         articles = ['a', 'an', 'the'],
         articleRegex;
