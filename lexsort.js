@@ -22,10 +22,15 @@ define(function(require) {
             articles = values;
             articleRegex = null;
         },
-        sort: function(strings) {
+        sort: function(strings, key) {
             var result = strings.sort(function(a, b) {
-                var cleanA = removeArticles(a),
-                    cleanB = removeArticles(b);
+                var cleanA, cleanB;
+                if (key) {
+                    a = a[key];
+                    b = b[key];
+                }
+                cleanA = removeArticles(a);
+                cleanB = removeArticles(b);
 
                 if (cleanA < cleanB) {
                     return -1;

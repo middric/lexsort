@@ -37,5 +37,19 @@ describe('lexsort', function () {
             'na monkey',
             'y zebra'
         ]);
-    })
+    });
+
+    it('can sort an array of objects', function () {
+        var result = lexsort.sort([
+            { name: 'the zebra' },
+            { name: 'an aardvark' },
+            { name: 'a monkey' }
+        ], 'name');
+
+        expect(result).toEqual([
+            { name: 'an aardvark' },
+            { name: 'a monkey' },
+            { name: 'the zebra' }
+        ]);
+    });
 });
