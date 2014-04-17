@@ -25,7 +25,10 @@ define(function(require) {
         sort: function(strings, key) {
             var result = strings.sort(function(a, b) {
                 var cleanA, cleanB;
-                if (key) {
+                if (typeof key === 'function') {
+                    a = key(a);
+                    b = key(b);
+                } else if (typeof key === 'string') {
                     a = a[key];
                     b = b[key];
                 }

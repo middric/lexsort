@@ -52,4 +52,20 @@ describe('lexsort', function () {
             { name: 'the zebra' }
         ]);
     });
+
+    it('can sort an array using a getter function', function () {
+        var result = lexsort.sort([
+            { name: 'the zebra' },
+            { name: 'an aardvark' },
+            { name: 'a monkey' }
+        ], function(a) {
+            return a.name;
+        });
+
+        expect(result).toEqual([
+            { name: 'an aardvark' },
+            { name: 'a monkey' },
+            { name: 'the zebra' }
+        ]);
+    });
 });
