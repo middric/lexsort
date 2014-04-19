@@ -1,6 +1,6 @@
 {
   "name": "lexsort",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Sort sentences alphabetically, taking into account definite and indefinite articles.",
   "main": "lexsort.js",
   "scripts": {
