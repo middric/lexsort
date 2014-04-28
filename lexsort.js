@@ -6,12 +6,15 @@ define(function(require) {
     var removeArticles = function(string) {
             if (!articleRegex) {
                 articleRegex = new RegExp(
-                    '^(' + articles.join('|') + ') (.*)', 'gi'
+                    '^(' + articles.join('|') + ') (.*)', 'g'
                 );
             }
-            return string.replace(/^[^a-z0-9]*/gi, '').replace(articleRegex, '$2');
+            return string.toLowerCase()
+                    .replace(/^[^a-z0-9]*/g, '')
+                    .replace(/[^a-z0-9]/g, ' ')
+                    .replace(articleRegex, '$2');
         },
-        articles = ['a', 'an', 'the'],
+        articles = ['the'],
         articleRegex;
 
     return {
